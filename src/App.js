@@ -94,7 +94,7 @@ export const App = () => {
             <div id="submit" onClick={getMessages}>{'>'}</div>
           </div>
           <p className="info">
-            Dobry mudżin... z Afrika/hahaha... zaobaemsieaaa!
+            Caution! Everything you say can be hallucinated back at you.
           </p>
         </div>
       </section>
