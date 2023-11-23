@@ -10,8 +10,6 @@ app.use(cors());
 
 const API_KEY = process.env.OPENAI_API_KEY;
 
-console.log(`The authorization: Bearer ${process.env.OPENAI_API_KEY}`);
-
 console.log('Siema Heniu!');
 
 app.post('/completions', async (req, res) => {
@@ -22,7 +20,7 @@ app.post('/completions', async (req, res) => {
             'Authorization': `Bearer ${API_KEY}`
         },
         body: JSON.stringify({
-            model: 'gpt-3.5-turbo',
+            model: 'GPT-3.5-turbo',
             messages: [{ role: 'user', content: req.body.message }],
             max_tokens: 100,
         })
