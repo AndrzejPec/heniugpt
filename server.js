@@ -1,12 +1,16 @@
 import fetch from 'node-fetch';
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const app = express();
 const PORT = 8000;
 app.use(express.json());
 app.use(cors());
 
-const API_KEY = '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';
+const API_KEY = process.env.OPENAI_API_KEY;
 
 console.log('Siema Heniu!');
 

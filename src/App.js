@@ -32,6 +32,7 @@ export const App = () => {
     try {
       const response = await fetch('http://localhost:8000/completions', options);
       const data = await response.json();
+      console.log(data);
       if (data && data.choices && data.choices[0]) {
         setMessage(data.choices[0].message);
       }
@@ -51,18 +52,18 @@ export const App = () => {
       setPreviousChats(previousChats => (
         [...previousChats,
           {
-          title: currentTitle,
-          role: 'user',
-          content: value,
-        },
-        {
-          role: message.role,
-          content: message.content,
-          title: currentTitle,
-        }]
+            title: currentTitle,
+            role: 'user',
+            content: value,
+          },
+          {
+            role: message.role,
+            content: message.content,
+            title: currentTitle,
+          }]
       ));
     }
-  }, [message, value, currentTitle]);
+  }, [message, currentTitle]);
 
   const currentChat = previousChats.filter(previousChats => previousChats.title === currentTitle);
   const uniqueTitles = Array.from(new Set(previousChats.map(previousChat => previousChat.title)));
