@@ -32,6 +32,7 @@ export const App = () => {
     try {
       const response = await fetch('http://localhost:8000/completions', options);
       const data = await response.json();
+      console.log(data);
       if (data && data.choices && data.choices[0]) {
         setMessage(data.choices[0].message);
       }
